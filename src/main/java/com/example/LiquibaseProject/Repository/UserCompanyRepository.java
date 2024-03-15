@@ -10,4 +10,10 @@ public interface UserCompanyRepository extends JpaRepository<UserCompany, Long> 
     List<UserCompany> findByUserId(Long userId);
 
     List<UserCompany> findByCompanyId(Long companyId);
+
+    List<UserCompany> findByUserName(String userName);
+
+    List<UserCompany> findByCompanyName(String companyName);
+
+    List<UserCompany> findByUserNameAndCompanyName(String userName, String companyName);
 }

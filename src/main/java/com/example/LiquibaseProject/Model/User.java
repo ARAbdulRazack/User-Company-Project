@@ -3,8 +3,6 @@ package com.example.LiquibaseProject.Model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.net.ssl.SSLSession;
-
 @Data
 @Entity
 @Table(name = "users")

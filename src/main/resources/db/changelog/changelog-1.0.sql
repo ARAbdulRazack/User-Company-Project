@@ -55,3 +55,42 @@ CREATE TABLE IF NOT EXISTS usercompany (
 --changeset sergio:8
 ALTER TABLE users
 DROP COLUMN company_id;
+
+--changeset sergio:9
+CREATE TABLE admin (
+    id SERIAL PRIMARY KEY,
+    phone_number VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+--changeset sergio:10
+DROP table admin
+
+--changeset sergio:11
+CREATE TABLE userinfo (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255),
+    roles VARCHAR(255)
+);
+
+--changeset sergio:12
+ALTER TABLE userinfo
+ALTER COLUMN name SET NOT NULL;
+ALTER TABLE userinfo
+ALTER COLUMN password SET NOT NULL;
+ALTER TABLE userinfo
+ADD CONSTRAINT unique_name UNIQUE (name);
+
+--changeset sergio:13
+DROP table userinfo
+
+--changeset sergio:14
+CREATE TABLE userinfo (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(20) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
