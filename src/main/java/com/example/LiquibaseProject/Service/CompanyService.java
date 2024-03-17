@@ -42,7 +42,7 @@ public class CompanyService {
         return companyMapper.toDto(company);
     }
 
-    public CompanyResponseDTO saveCompany(CompanyRequestDTO requestDTO) {
+    public CompanyResponseDTO createCompany(CompanyRequestDTO requestDTO) {
         Company company = companyMapper.toEntity(requestDTO);
         company = companyRepository.save(company);
         return companyMapper.toDto(company);
