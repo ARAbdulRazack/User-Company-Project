@@ -1,9 +1,10 @@
 package com.example.LiquibaseProject.Model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
-
-import javax.net.ssl.SSLSession;
+import lombok.Getter;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Data
 @Entity
@@ -18,6 +19,16 @@ public class User {
 
     private String address;
 
-    private String phone_number;
+    @Column(name = "phone_number") // Specify the column name explicitly
+    private String phoneNumber;
+
+    private String password;
+
+    public void setPassword(String password) {
+        this.password = new BCryptPasswordEncoder().encode(password);
+    }
+
+
+
 
 }

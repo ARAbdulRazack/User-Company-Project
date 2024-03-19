@@ -51,7 +51,7 @@ public class UserCompanyMapper {
             userResponseDTO.setId(userCompany.getUser().getId());
             userResponseDTO.setName(userCompany.getUser().getName());
             userResponseDTO.setAddress(userCompany.getUser().getAddress());
-            userResponseDTO.setPhone_number(userCompany.getUser().getPhone_number());
+            userResponseDTO.setPhone_number(userCompany.getUser().getPhoneNumber());
             dto.setUser(userResponseDTO);
         }
 

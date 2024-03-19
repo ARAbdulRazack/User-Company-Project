@@ -5,7 +5,15 @@ import lombok.Data;
 @Data
 public class UserCompanyRequestDTO {
 
-    private UserResponseDTO userId;
-    private CompanyResponseDTO companyId;
+    private UserResponseDTO user;
+    private CompanyResponseDTO company;
+
+    public UserResponseDTO getUserId() {
+        return user;
+    }
+
+    public CompanyResponseDTO getCompanyId() {
+        return company;
+    }
 
 }
