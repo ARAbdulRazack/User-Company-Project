@@ -18,7 +18,8 @@ public class UserMapper {
         User user = new User();
         user.setName(userRequestDTO.getName());
         user.setAddress(userRequestDTO.getAddress());
-        user.setPhone_number(userRequestDTO.getPhone_number());
+        user.setPhoneNumber(userRequestDTO.getPhone_number());
+        user.setPassword(userRequestDTO.getPassword());
         return user;
     }
 
@@ -27,7 +28,7 @@ public class UserMapper {
         dto.setId(user.getId());
         dto.setName(user.getName());
         dto.setAddress(user.getAddress());
-        dto.setPhone_number(user.getPhone_number());
+        dto.setPhone_number(user.getPhoneNumber());
         return dto;
 
     }
@@ -35,6 +36,7 @@ public class UserMapper {
     public void updateEntityFromDTO(UserRequestDTO userRequestDTO, User existingUser) {
         existingUser.setName(userRequestDTO.getName());
         existingUser.setAddress(userRequestDTO.getAddress());
-        existingUser.setPhone_number(userRequestDTO.getPhone_number());
+        existingUser.setPhoneNumber(userRequestDTO.getPhone_number());
+        existingUser.setPassword(userRequestDTO.getPassword());
     }
 }
