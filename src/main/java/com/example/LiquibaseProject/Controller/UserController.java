@@ -1,10 +1,13 @@
 package com.example.LiquibaseProject.Controller;
 
+import com.example.LiquibaseProject.DTO.AuthRequestDTO;
 import com.example.LiquibaseProject.DTO.UserRequestDTO;
 import com.example.LiquibaseProject.DTO.UserResponseDTO;
+import com.example.LiquibaseProject.JWT.JwtTokenUtil;
 import com.example.LiquibaseProject.Mapper.UserMapper;
 import com.example.LiquibaseProject.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +26,12 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtTokenUtil jwtTokenProvider;
+
     @GetMapping
     public List<UserResponseDTO> getAllUser() {
         return userService.getAllUser();
@@ -33,9 +42,15 @@ public class UserController {
         return userService.getUserById(id);
     }
 
+<<<<<<< Updated upstream
     @PostMapping
     public UserResponseDTO saveUser(@RequestBody UserRequestDTO userRequestDTO) {
         return userService.saveUser(userRequestDTO);
+=======
+    @PostMapping("/signin")
+    public UserResponseDTO createUser(@RequestBody UserRequestDTO userRequestDTO) {
+        return userService.createUser(userRequestDTO);
+>>>>>>> Stashed changes
     }
 
     @PutMapping("/{id}")
@@ -48,4 +63,8 @@ public class UserController {
         userService.deleteUser(id);
     }
 
+    @PostMapping("/login")
+    public String login(@RequestBody AuthRequestDTO authenticationRequest) {
+        return userService.login(authenticationRequest.getName(), authenticationRequest.getPassword());
+    }
 }
