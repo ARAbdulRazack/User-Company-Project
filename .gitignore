@@ -32,7 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
-git rm -r mvnc
-git rm -r .mvn/wrapper
-git rm mvnc.cmd
-git rm .gitattributes
+mvnc/
+.mvn/wrapper/
+mvnc.cmd
+.gitattributes
