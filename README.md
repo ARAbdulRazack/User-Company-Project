@@ -1,6 +1,6 @@
 ## User Company Project
 
-- Developed a small scale project using Spring Boot, focusing on user and company management. 
+Developed a small scale project using Spring Boot, focusing on user and company management. 
 
 ## Project Setup
 
